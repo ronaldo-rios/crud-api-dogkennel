@@ -147,7 +147,11 @@ module.exports = class UserController {
         const token = getToken(request);
         const user = await getUserByToken(token);
         const {name, email, phone, password, confirmPassword} = request.body
-        let image = ''
+
+        // Insert user image:
+        if(request.file){
+            user.image = request.file.filename
+        }
 
         //Validations:
         if(!name){
