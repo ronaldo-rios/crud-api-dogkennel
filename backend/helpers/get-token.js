@@ -1,4 +1,4 @@
-
+// Get token of the header to use logged:
 const getToken = (request) => {
 
     const authHeader = request.headers.authorization
