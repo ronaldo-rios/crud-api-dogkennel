@@ -1,0 +1,14 @@
+.footer {
+    height:250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #da9cfa;
+    color: #fff;
+}
+
+
+.logo {
+    max-width: 150px;
+    max-height: 150px;
+}
