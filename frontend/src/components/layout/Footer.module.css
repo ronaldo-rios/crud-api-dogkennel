@@ -5,6 +5,7 @@
     justify-content: center;
     background-color: #da9cfa;
     color: #fff;
+    flex-wrap: wrap;
 }
 
 
@@ -12,3 +13,4 @@
     max-width: 150px;
     max-height: 150px;
 }
+
