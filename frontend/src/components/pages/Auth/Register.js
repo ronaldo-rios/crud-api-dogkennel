@@ -1,19 +1,29 @@
 import Input from './Input'
 import styles from './Form.module.css'
 import {Link} from 'react-router-dom'
+import {Context} from '../../../context/UserContext'
+import {useState, useContext} from 'react'
 
 function Register() {
 
-    function handleChange(event) {
+    const [user, setUser] = useState({})
+    const {register} = useContext(Context)
 
+    function handleChange(event) {
+        setUser({...user, [event.target.name]: event.target.value})
     }
 
+    function handleSubmit(event){
+        event.preventDefault()
+        // Send user to Database:
+        register(user)
+    }
 
     return (
         <section className={styles.form_container}>
             <h1>Registrar</h1>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Input text="Nome" type="text" name="name"
                     placeholder="Digite o seu nome" handleOnChange={handleChange} />
 
