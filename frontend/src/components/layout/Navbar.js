@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/img/logo-pet.jpg'
 import styles from './Navbar.module.css'
-import {Context} from '../../context/userContext'
+import {Context} from '../../context/UserContext'
 import {useContext} from 'react'
 
 
@@ -19,6 +19,7 @@ function Navbar() {
                 <li>
                     <Link to="/">Adotar</Link>
                 </li>
+                {/* Conditional if user authenticated or not: */}
                 {authenticated ? (<><li onClick={logout}>Sair</li></>) : (<>
                 <li>
                     <Link to="/login">Entrar</Link>
