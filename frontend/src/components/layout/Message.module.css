@@ -7,17 +7,17 @@
     margin: 1em auto;
     text-align: center;
     border-radius: 6px;
-    min-height: 60px;
+    
 }
 
 .sucess {
     color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
+    background-color: #aeffc1;
+    border-color: #aeffc1;
 }
 
 .error {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+    color: #a70515;
+    background-color: #fda5ad;
+    border-color: #fda5ad;
 }
