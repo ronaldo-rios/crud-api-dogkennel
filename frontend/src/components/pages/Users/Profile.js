@@ -8,7 +8,7 @@ import RoundedImage from '../../layout/RoundedImage'
 function Profile() {
 
     const [user, setUser] = useState({})
-    const [preview, setPreview] = useState('')
+    const [preview, setPreview] = useState()
     const [token] = useState(localStorage.getItem('token') || '')
     const {setFlashMessage} = useFlashMessage() 
 
@@ -40,9 +40,10 @@ function Profile() {
 
         const formData = new FormData()
 
-        await Object.keys(user).forEach((key) => {
+        const userFormData = await Object.keys(user).forEach((key) => {
             formData.append(key, user[key])
         })
+        formData.append('user', userFormData)
 
         const data = await api.patch(`/users/edit/${user._id}`, formData, {
             headers: {
@@ -68,8 +69,8 @@ function Profile() {
                 {(user.image || preview) 
                 && 
                 (
-                <RoundedImage src={preview ? URL.createObjectURL(preview) : 
-                `${process.env.REACT_APP_API}/images/users/${user.image}`} alt={user.name} />
+                <RoundedImage src={preview ? URL.createObjectURL(
+                    preview) : `${process.env.REACT_APP_API}/images/users/${user.image}`} alt={user.name} />
                 )}
             </div>
 
