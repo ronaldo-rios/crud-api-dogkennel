@@ -21,8 +21,12 @@ function Navbar() {
                 </li>
                 {/* Conditional if user authenticated or not: */}
                 {authenticated ? (
-                <><li>
-                    <Link to="/user/profile">Perfil</Link>
+                <>
+                <li>
+                    <Link to="/pets/mypets">Meus Pets</Link>
+                </li>
+                <li>
+                    <Link to="/users/profile">Perfil</Link>
                 </li>
                 <li onClick={logout}>Sair</li></>
                 ) : (
