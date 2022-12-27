@@ -12,7 +12,7 @@ function PetForm({ handleSubmit, petData, btnText }) {
     // Function to add pet images:
     function onFileChange(event) {
         setPreview(Array.from(event.target.files))
-        setPet({ ...pet, images: event.target.files })
+        setPet({ ...pet, images: [...event.target.files] })
     }
 
     function handleChange(e) {
@@ -25,21 +25,31 @@ function PetForm({ handleSubmit, petData, btnText }) {
     }
 
     //Submit method:
-    function handleSubmit(event) {
-        event.preventDefaut()
-
-    }
+    function submit(e) {
+        e.preventDefault()
+        handleSubmit(pet)
+      }
 
     return (
-        <form className={styles.addpet_container} onSubmit={handleSubmit}>
+        <form onSubmit={submit} className={styles.addpet_container}>
 
             <div className={styles.preview_pet_images}>
-                {preview.length > 0 ? preview.map((image, index) =>
-                    <img src={URL.createObjectURL(image)} alt={pet.name} key={`${pet.name}+${index}`} />
-                ) : pet.images && pet.images.map((image, index) =>
-                    <img src={`${process.env.REACT_APP_API}images/pets/${image}`} alt={pet.name} key={`${pet.name}+${index}`} />
-                )
-                }
+            {preview.length > 0
+          ? preview.map((image, index) => (
+              <img
+                src={URL.createObjectURL(image)}
+                alt={pet.name}
+                key={`${pet.name}+${index}`}
+              />
+            ))
+          : pet.images &&
+            pet.images.map((image, index) => (
+              <img
+                src={`${process.env.REACT_APP_API}/images/pets/${image}`}
+                alt={pet.name}
+                key={`${pet.name}+${index}`}
+              />
+            ))}
             </div>
             <Input text="Imagens do Pet" type="file" name="images" handleOnChange={onFileChange} multiple={true} />
 
