@@ -67,7 +67,7 @@
     font-size: 12px;
   }
 
-  .actions button {
+  .actions_remove {
     text-decoration: none;
     color: #fdfdfd;
     border: 2px solid rgba(255, 5, 38, 0.918);
@@ -86,20 +86,34 @@
     color: #fff;
   }
 
-  .actions button:hover {
+  .actions_remove:hover {
     background-color:rgb(168, 4, 26);
     border: 2px solid rgb(168, 4, 26);
     color: #fff;
   }
   
-  .actions .conclude_btn {
-    color: #25b456;
+  .conclude_btn {
+    color: #fff;
     border-color: #25b456;
+    background-color: #02ac35;
+    margin-left: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 7px 12px;
   }
   
-  .actions .conclude_btn:hover {
+  .conclude_btn:hover {
     color: #fff;
     background-color: #25b456;
+  }
+
+  .actions p {
+    color:#02ac35;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em;
   }
   
   /* my adoptions */
@@ -109,4 +123,10 @@
   
   .contacts p {
     margin-bottom: 0.5em;
+    color:#16479d;
+    font-weight: bold;
   }
+
+ 
+
+  
